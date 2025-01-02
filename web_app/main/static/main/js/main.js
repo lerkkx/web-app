@@ -10,5 +10,5 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 
 
 function redirectToLogin() {
-    window.location.href = '/login'; // '/login' дописать страницу 
+    window.location.href = '/login';
 }
