@@ -5,11 +5,5 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // Здесь можно добавить код для отправки данных на сервер
-
-    // Для примера просто выводим сообщение
-    // document.getElementById('message').innerText = `Регистрация успешна! Добро пожаловать, ${username}!`;
-    
-    // Очистка формы
     this.reset();
 });

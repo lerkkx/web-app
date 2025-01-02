@@ -9,7 +9,7 @@ body {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -26,13 +26,15 @@ h1 {
 label {
     display: block;
     margin-bottom: 5px;
+    font-size: 14px; /* Установите размер шрифта */
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 10px; /* Отступ внутри поля ввода */
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; /* Учитывайте отступы и границы в ширине */
 }
 
 button {
