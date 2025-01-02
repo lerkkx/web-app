@@ -1,5 +1,5 @@
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Предотвращаем отправку формы
+    event.preventDefault(); // предотвращаем отправку формы
 
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
@@ -7,3 +7,8 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 
     this.reset();
 });
+
+
+function redirectToLogin() {
+    window.location.href = '/login'; // '/login' дописать страницу 
+}

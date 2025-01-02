@@ -12,6 +12,7 @@ body {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 1%;   
 }
 
 h1 {
@@ -19,22 +20,18 @@ h1 {
     color: #333;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
 label {
     display: block;
     margin-bottom: 5px;
-    font-size: 14px; /* Установите размер шрифта */
+    font-size: 14px;
 }
 
 input {
     width: 100%;
-    padding: 10px; /* Отступ внутри поля ввода */
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Учитывайте отступы и границы в ширине */
+    box-sizing: border-box;
 }
 
 button {
@@ -45,6 +42,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 1%;
 }
 
 button:hover {
@@ -54,4 +52,18 @@ button:hover {
 #message {
     text-align: center;
     margin-top: 15px;
+}
+
+
+.form-group {
+    margin-bottom: 5%;
+}
+
+#loginButton {
+    margin-top: 3%;
+    background-color: #5cb85c; /* Цвет фона */
+}
+
+#loginButton:hover {
+    background-color: #4cae4c; /* Цвет фона при наведении */
 }

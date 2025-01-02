@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Регистрация</h1>
+        <h1>Вход</h1>
         <form method="post" id="registrationForm">
             <div class="form-group">
                 <label for="username">Имя пользователя:</label>
@@ -25,11 +25,8 @@
                 <label for="password">Пароль:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Зарегистрироваться</button>
+            <button type="submit">Войти</button>
         </form>
-        <div class="form-group">
-            <button id="loginButton" type="button" onclick="redirectToLogin()">У меня уже есть аккаунт</button>
-        </div>
         <p id="message"></p>
     </div>
     <script src="{% static 'main/js/main.js' %}"></script>
