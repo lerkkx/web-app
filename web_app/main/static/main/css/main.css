@@ -12,7 +12,7 @@ body {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding-bottom: 20px;
+    padding-bottom: 1%;   
 }
 
 h1 {
@@ -22,7 +22,7 @@ h1 {
 
 label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     font-size: 14px;
 }
 
@@ -32,8 +32,6 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-bottom: 15px;
-    display: block; 
 }
 
 button {
@@ -44,7 +42,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-bottom: 15px;
+    margin-bottom: 1%;
 }
 
 button:hover {
@@ -56,15 +54,16 @@ button:hover {
     margin-top: 15px;
 }
 
+
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 5%;
 }
 
 #loginButton {
-    margin-top: 15px;
-    background-color: #5cb85c;
+    margin-top: 3%;
+    background-color: #5cb85c; /* Цвет фона */
 }
 
 #loginButton:hover {
-    background-color: #4cae4c;
+    background-color: #4cae4c; /* Цвет фона при наведении */
 }
