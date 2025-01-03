@@ -1,11 +1,9 @@
-from django.shortcuts import render
-from .models import Registration
 
-def login(request):
-    return render(request, "main/login.html")
-
-def index(request):
-    return render(request, "main/index.html")
-
-def about(request):
-    return render(request, "main/about.html")
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+    path('register/', views.index, name='register'),  # Используем основную страницу для регистрации
+    path('login/', views.user_login, name='user_login')
+]

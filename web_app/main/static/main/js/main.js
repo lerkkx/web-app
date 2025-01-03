@@ -1,5 +1,5 @@
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // предотвращаем отправку формы
+    event.preventDefault(); 
 
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;

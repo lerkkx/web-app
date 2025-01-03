@@ -1,37 +1,44 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
     <link rel="icon" href="{% static 'main/img/house-solid.svg' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
-    <title>Авторизация</title>
+    <title>Регистрация</title>
 </head>
 <body>
     <div class="container">
         <h1>Регистрация</h1>
-        <form method="post" id="registrationForm">
+        <form method="post">
+            {% csrf_token %}
             <div class="form-group">
-                <label for="username">Имя пользователя:</label>
-                <input type="text" id="username" name="username" required>
+                {{ form.username.label_tag }}
+                {{ form.username }}
             </div>
             <div class="form-group">
-                <label for="email">Электронная почта:</label>
-                <input type="email" id="email" name="email" required>
+                {{ form.email.label_tag }}
+                {{ form.email }}
             </div>
             <div class="form-group">
-                <label for="password">Пароль:</label>
-                <input type="password" id="password" name="password" required>
+                {{ form.password.label_tag }}
+                {{ form.password }}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label_tag }}
+                {{ form.confirm_password }}
             </div>
             <button type="submit">Зарегистрироваться</button>
         </form>
         <div class="form-group">
-            <button id="loginButton" type="button" onclick="redirectToLogin()">У меня уже есть аккаунт</button>
+            <button id="loginButton" type="button" class="btn btn-secondary" onclick="redirectToLogin()">У меня уже есть аккаунт</button>
         </div>
-        <p id="message"></p>
     </div>
-    <script src="{% static 'main/js/main.js' %}"></script>
+    <script>
+        function redirectToLogin() {
+            window.location.href = "{% url 'user_login' %}";
+        }
+    </script>
 </body>
 </html>

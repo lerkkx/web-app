@@ -1,5 +1,8 @@
+
 from django.contrib import admin
-from .models import Registration
+from .models import UserRegistration
 
-
-admin.site.register(Registration)
+@admin.register(UserRegistration)
+class UserRegistrationAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email')
+    search_fields = ('username', 'email')
