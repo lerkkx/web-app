@@ -3,7 +3,7 @@ from .models import UserRegistration
 
 class RegistrationForm(forms.ModelForm):
     username = forms.CharField(label="Имя пользователя:")
-    email = forms.CharField(label="Электронная почта:")
+    email = forms.EmailField(label="Электронная почта:")
     password = forms.CharField(widget=forms.PasswordInput, label="Пароль")
     confirm_password = forms.CharField(widget=forms.PasswordInput, label="Подтвердите пароль")
 
@@ -39,10 +39,14 @@ class RegistrationForm(forms.ModelForm):
             raise forms.ValidationError("Пароли не совпадают!")
         return cleaned_data
 
-
     def save(self, commit=True):
         user = super().save(commit=False)
-        user.password = self.cleaned_data["password"]
+        user.set_password(self.cleaned_data["password"])  # хешируем пароль
         if commit:
             user.save()
         return user
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=150)
+    password = forms.CharField(widget=forms.PasswordInput)
