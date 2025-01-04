@@ -67,3 +67,9 @@ button:hover {
 #loginButton:hover {
     background-color: #4cae4c; /* Цвет фона при наведении */
 }
+
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}

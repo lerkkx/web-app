@@ -6,6 +6,7 @@
     {% load static %}
     <link rel="icon" href="{% static 'main/img/house-solid.svg' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <title>Авторизация</title>
 </head>
 <body>
@@ -28,14 +29,30 @@
             <div class="form-group">
                 {{ form.confirm_password.label_tag }}
                 {{ form.confirm_password }}
-            </div>
+            </div>            
             <button type="submit">Зарегистрироваться</button>
         </form>
         <div class="form-group">
             <button id="loginButton" type="button" class="btn btn-secondary" onclick="redirectToLogin()">У меня уже есть аккаунт</button>
         </div>
     </div>
+
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Подключение Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            {% if errors %}
+                {% for field, error_list in errors.items %}
+                    {% for error in error_list %}
+                        toastr.error("{{ error|escapejs }}", "Ошибка");
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+        });
+
         function redirectToLogin() {
             window.location.href = "{% url 'user_login' %}";
         }
