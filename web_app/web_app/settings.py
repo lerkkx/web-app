@@ -129,6 +129,12 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'noreply.sport@mail.ru'  # email no-reply
+EMAIL_HOST_PASSWORD = 'udDZgiZ8pKvmuxqMvsvc'  # pass email no-reply      НЕ МЕНЯТЬ!!!!
+DEFAULT_FROM_EMAIL = 'noreply.sport@mail.ru'  # email no-reply
 
 AUTH_USER_MODEL = 'main.UserRegistration' # НОВОЕ
