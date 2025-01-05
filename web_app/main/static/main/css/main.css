@@ -1,7 +1,7 @@
 /* main/css/main.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f0f8f0;
     margin: 0;
     padding: 0;
 }
@@ -18,7 +18,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #2c3e50;
 }
 
 label {
@@ -34,13 +34,13 @@ input {
     border-radius: 4px;
     box-sizing: border-box;
     margin-bottom: 15px;
-    display: block; /* Убедитесь, что поля ввода отображаются */
+    display: block;
 }
 
 button {
     width: 100%;
     padding: 10px;
-    background-color: #5cb85c;
+    background-color: #27ae60;
     color: white;
     border: none;
     border-radius: 4px;
@@ -49,14 +49,14 @@ button {
 }
 
 button:hover {
-    background-color: #4cae4c;
+    background-color: #219150;
 }
 
 a {
     display: block;
     margin-top: 15px;
     text-align: center;
-    color: #5cb85c;
+    color: #27ae60;
     text-decoration: none;
 }
 
@@ -75,9 +75,9 @@ a:hover {
 
 #loginButton {
     margin-top: 15px;
-    background-color: #5cb85c;
+    background-color: #27ae60;
 }
 
 #loginButton:hover {
-    background-color: #4cae4c;
+    background-color: #219150;
 }
