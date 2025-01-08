@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="{% static 'invpage/css/inv.css' %}">
+</head>
+<body>
+
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="{% url 'about' %}">О нас</a>
+    
+</div>
+
+<div id="main-content">
+    <button class="openbtn" onclick="openNav()">&#9776; Меню</button>
+    <h1>Привет {{ user_info }}👋, добро пожаловать на главную страницу</h1>
+
+
+<div class="toggle-section">
+    <button class="btnlist" onclick="CButton()">Доступный инвентарь </button>
+    <ul class="inventory-list good" id="inventory-list-good">
+      <li>
+        <div class="inventory-card">
+        <h3>Название</h3>
+        <div class="status">Статус: <span class="status-indicator good">Исправен</span></div>
+        <p>Описание: Это описание инвентаря.</p>
+        <button class="request-button">Отправить заявку</button>
+      </li>
+      <li>
+        <div class="inventory-card">
+        <h3>Название</h3>
+        <div class="status">Статус: <span class="status-indicator good">Исправен</span></div>
+        <p>Описание: Это описание инвентаря.</p>
+        <button class="request-button">Отправить заявку</button>
+      </li>
+      
+      
+    </ul>
+  </div>  
+</div>
+<script src="{% static 'invpage/js/inv.js' %}"></script>
+
+</body>
+</html>
