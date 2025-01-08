@@ -6,6 +6,7 @@
     {% load static %}
     <link rel="icon" href="{% static 'main/img/house-solid.svg' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <title>Авторизация</title>
 </head>
 <body>
@@ -28,6 +29,19 @@
         </p>
         <p id="message"></p>
     </div>
+
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Подключение Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="{% static 'main/js/main.js' %}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            {% if error %}
+                toastr.error("{{ error|escapejs }}", "Ошибка");
+            {% endif %}
+        });
+    </script>
 </body>
 </html>

@@ -29,7 +29,7 @@
             <div class="form-group">
                 {{ form.confirm_password.label_tag }}
                 {{ form.confirm_password }}
-            </div>            
+            </div>
             <button type="submit">Зарегистрироваться</button>
         </form>
         <div class="form-group">
@@ -41,7 +41,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Подключение Toastr JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    
+    <script src="{% static 'main/js/main.js' %}"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             {% if errors %}
@@ -52,10 +53,6 @@
                 {% endfor %}
             {% endif %}
         });
-
-        function redirectToLogin() {
-            window.location.href = "{% url 'user_login' %}";
-        }
     </script>
 </body>
 </html>

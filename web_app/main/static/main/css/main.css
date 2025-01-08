@@ -11,45 +11,64 @@ body {
     margin: 50px auto;
     padding: 20px;
     background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     padding-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02);
 }
 
 h1 {
     text-align: center;
     color: #2c3e50;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
+    color: #34495e;
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     box-sizing: border-box;
     margin-bottom: 15px;
     display: block;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #27ae60;
+    outline: none;
 }
 
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #27ae60;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #219150;
+    transform: scale(1.05);
 }
 
 a {
@@ -58,15 +77,20 @@ a {
     text-align: center;
     color: #27ae60;
     text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
 }
 
 a:hover {
+    color: #219150;
     text-decoration: underline;
 }
 
 #message {
     text-align: center;
     margin-top: 15px;
+    color: #2c3e50;
+    font-size: 14px;
 }
 
 .form-group {
@@ -80,4 +104,5 @@ a:hover {
 
 #loginButton:hover {
     background-color: #219150;
+    transform: scale(1.05);
 }
