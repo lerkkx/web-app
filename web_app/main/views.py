@@ -35,7 +35,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('about') #ПОМЕНЯТЬ НА ОСНОВНУЮ СТРАНИЦУ
+                return redirect('/inventory') #ПОМЕНЯТЬ НА ОСНОВНУЮ СТРАНИЦУ
             else:
                 try:
                     user = UserRegistration.objects.get(username=username)
