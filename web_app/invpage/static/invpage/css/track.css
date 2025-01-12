@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+
+ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+ul li {
+    border: 2px solid #aaa; /* Граница элемента списка */
+    border-radius: 10px; /* Скругление углов */
+    background-color: #f9f9f9; /* Цвет фона элемента */
+    padding: 20px; /* Отступы внутри элемента */
+    width: 80%; /* Ширина элемента */
+    margin: 10px auto; /* Центрирование элемента с отступом сверху и снизу */
+    display: flex; /* Используем flexbox для выравнивания содержимого */
+    flex-direction: column; /* Вертикальное выравнивание содержимого */
+    justify-content: center; /* Центрируем содержимое по вертикали */
+    align-items: flex-start; /* Выравнивание содержимого по левому краю */
+}
+
+/* Статус заявки */
+.status {
+    font-size: 14px;
+    color: #666;
+}
+
+.status-indicator {
+    font-weight: bold;
+}
+
+.status-indicator.good {
+    color: green;
+}
+
+.status-indicator.bad {
+    color: red;
+}
+
+
+a {
+    display: inline-block; 
+    margin-top: 20px; 
+    padding: 10px 15px; 
+    background-color: #4CAF50;
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    text-align: center; 
+}
+
+a:hover {
+    background-color: #45a049;
+}
+
+
+.button-container {
+    text-align: center; 
+}

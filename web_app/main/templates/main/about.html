@@ -28,8 +28,23 @@
         p {
             color: #555;
         }
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none; 
+            border-radius: 5px; 
+            text-align: center;
+        }
+        .back-button:hover {
+            background-color: #45a049; 
+        }
+        .button-container {
+            text-align: center; 
+        }
     </style>
-    
 </head>
 <body>
 
@@ -56,6 +71,10 @@
 <div class="developer">
     <h2>Валерия</h2>
     <p>Валерия — дизайнер интерфейсов, которая создает красивые и удобные пользовательские интерфейсы. Она заботится о том, чтобы каждый продукт был не только функциональным, но и эстетически привлекательным.</p>
+</div>
+
+<div class="button-container">
+   <a href="{% url 'index' %}" class="back-button">Назад на главную</a>
 </div>
 
 </body>

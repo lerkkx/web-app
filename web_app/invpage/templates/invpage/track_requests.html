@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отслеживание заявок</title>
+    <link rel="stylesheet" href="{% static 'invpage/css/inv.css' %}">
+    <link rel="stylesheet" href="{% static 'invpage/css/track.css' %}">
+</head>
+<body>
+
+<h1>Ваши заявки</h1>
+
+<ul>
+    {% for request in requests %}
+        <li>ID заявки: {{ request.request_id }} - {{ request.item_name }} - Статус: {{ request.status }} ({{ request.created_at }})</li>
+    {% empty %}
+        <li>У вас нет заявок.</li>
+    {% endfor %}
+</ul>
+
+<!-- Контейнер для кнопки -->
+<div class="button-container">
+   <a href="{% url 'index' %}">Назад на главную</a>
+</div>
+
+<script src="{% static 'invpage/js/inv.js' %}"></script>
+
+</body>
+</html>
