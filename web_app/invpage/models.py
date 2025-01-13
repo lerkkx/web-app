@@ -23,4 +23,11 @@ class InventoryItem(models.Model):
     def __str__(self):
         return f"{self.name} (ID: {self.item_id}, Количество: {self.quantity})"
 
+class Ownership(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='owned_items')
+    item = models.ForeignKey(InventoryItem, on_delete=models.CASCADE, related_name='owners')
+    quantity = models.PositiveIntegerField(default=1) 
+
+    def __str__(self):
+        return self
 

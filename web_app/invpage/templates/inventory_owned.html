@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш инвентарь</title>
+    <link rel="stylesheet" href="{% static 'invpage/css/own_inv.css' %}">
+</head>
+<body>
+
+
+
+
+<button class="btnlist" onclick="CButton()">Ваш инвентарь</button>
+<ul class="inventory-list good" id="inventory-list-good">
+    {% for el in owned_items %}
+        <li>
+            <div class="inventory-card">
+                <h3>{{ el.item.name }}</h3>
+                <div class="status">Статус: <span class="status-indicator good">{{ el.item.status }}</span></div>
+                <p>Описание: {{ el.item.description }}</p>
+                <p>Количество: {{ el.item.quantity }}</p>
+                
+            </div>
+        </li>
+    {% empty %}
+        <li>Нет доступного инвентаря.</li>
+    {% endfor %}
+</ul>
+    
+
+<script src="{% static 'invpage/js/inv.js' %}"></script>
+
+</body>
+</html>
