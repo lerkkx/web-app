@@ -1,0 +1,51 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Управление заявками</title>
+    <link rel="stylesheet" href="{% static 'invpage/css/req.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<body>
+    <div class="container">
+        <h2>Управление заявками</h2>
+        {% if pending_requests %}
+            <div class="row">
+                {% for req in pending_requests %}
+                    <div class="col-md-6 mb-4">
+                        <div class="request-card">
+                            <div class="card-header">
+                                <h3>{{ req.item_name }}</h3>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Пользователь:</strong> {{ req.user.username }}</p>
+                                <p><strong>Количество:</strong> {{ req.quantity }}</p>
+                                <p><strong>Дата создания:</strong> {{ req.created_at|date:"d.m.Y H:i" }}</p>
+                            </div>
+                            <div class="card-l">
+                                <form method="post" action="{% url 'manage_requests' %}" class="d-inline">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="request_id" value="{{ req.request_id }}">
+                                    <button type="submit" name="action" value="approve" class="btn btn-success">
+                                        <i class="fas fa-check"></i> Одобрить
+                                    </button>
+                                    <button type="submit" name="action" value="reject" class="btn btn-false">
+                                        <i class="fas fa-times"></i> Отклонить
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert-info">
+                Нет заявок, ожидающих рассмотрения.
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

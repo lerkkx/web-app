@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,10 @@
 <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="{% url 'track_requests' %}">Ваши заявки</a> 
+    <a href="{% url 'owned_inv' %}">Личный кабинет</a> 
+    {% if request.user.is_superuser %}
+        <a href="{% url 'manage_requests' %}">Управление заявками</a>
+    {% endif %}
     <a href="{% url 'about' %}">О нас</a>
 </div>
 

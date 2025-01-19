@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import create_request, track_requests
+from .views import create_request, track_requests, manage_requests, owned_inv
 
 urlpatterns = [
     path('', create_request, name='index'),
     path('track_requests/', track_requests, name='track_requests'),
+    path('manage_requests/', manage_requests, name='manage_requests'),
+    path('owned_inventory/', owned_inv, name='owned_inv')
 ]
