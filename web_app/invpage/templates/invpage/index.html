@@ -39,7 +39,13 @@
                             </span>
                         </div>                                                                     
                         <p>Описание: {{ item.description }}</p>
-                        <p>Количество: {{ item.quantity }}</p>
+                        <p>
+                            Количество: 
+                            <span class="quantity-indicator 
+                                {% if item.quantity == 0 %}out-of-stock{% else %}in-stock{% endif %}">
+                                {{ item.quantity }}
+                            </span>
+                        </p>                        
                         <form method="POST" action="{% url 'index' %}">
                             {% csrf_token %}
                             <input type="hidden" name="item_name" value="{{ item.name }}">

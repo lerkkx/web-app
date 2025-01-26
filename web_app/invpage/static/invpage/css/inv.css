@@ -155,3 +155,13 @@ body.blur #main-content {
   content: '▲';
   transform: rotate(360deg);
 } 
+
+.quantity-indicator {
+  font-weight: bold;
+}
+.quantity-indicator.out-of-stock {
+  color: red;
+}
+.quantity-indicator.in-stock {
+  color: green;
+}
