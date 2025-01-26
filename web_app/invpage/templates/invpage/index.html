@@ -31,7 +31,13 @@
                 <li>
                     <div class="inventory-card">
                         <h3>{{ item.name }}</h3>
-                        <div class="status">Статус: <span class="status-indicator good">{{ item.status }}</span></div>
+                        <div class="status">
+                            Статус: 
+                            <span class="status-indicator 
+                                {% if item.status == 'Исправен' %}good{% else %}bad{% endif %}">
+                                {{ item.status }}
+                            </span>
+                        </div>                                                                     
                         <p>Описание: {{ item.description }}</p>
                         <p>Количество: {{ item.quantity }}</p>
                         <form method="POST" action="{% url 'index' %}">
