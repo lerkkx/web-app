@@ -147,11 +147,11 @@ body.blur #main-content {
   
 }
 .toggle-section .btnlist:after {
-  content: '▲';
+  content: '▼';
   margin-left: 10px;
   transition: transform 0.3s ease, content 0.3s ease;
 }
 .toggle-section .btnlist.active:after {
-  content: '▼';
-  transform: rotate(180deg);
+  content: '▲';
+  transform: rotate(360deg);
 } 
