@@ -106,3 +106,24 @@ h2 {
     text-align: center;
     margin-top: 20px;
 }
+
+
+a {
+    display: inline-block; 
+    margin-top: 20px; 
+    padding: 10px 15px; 
+    background-color: #4CAF50;
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    text-align: center; 
+  }
+  
+  a:hover {
+    background-color: #45a049;
+  }
+  
+  
+  .button-container {
+    text-align: center; 
+  }

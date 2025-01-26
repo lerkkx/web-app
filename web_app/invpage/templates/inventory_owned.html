@@ -13,8 +13,6 @@
 
 
 
-
-<button class="btnlist" onclick="CButton()">Ваш инвентарь</button>
 <ul class="inventory-list good" id="inventory-list-good">
     {% for el in owned_items %}
         <li>
@@ -30,9 +28,10 @@
         <li>Нет доступного инвентаря.</li>
     {% endfor %}
 </ul>
-    
 
-<script src="{% static 'invpage/js/inv.js' %}"></script>
+<div class="button-container">
+    <a href="{% url 'index' %}">Назад на главную</a>
+</div>
 
 </body>
 </html>

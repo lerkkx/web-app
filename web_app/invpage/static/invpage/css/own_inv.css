@@ -30,27 +30,24 @@ body.blur #main-content {
 
 
 
-  .status {
-    font-size: 14px;
-    color: #666;
-  }
-  .status-indicator {
-    font-weight: bold;
-  }
-  .status-indicator.good {
-    color: green;
-  }
-  .status-indicator.bad {
-    color: red;
-  }
-  
-  .inventory-list.good{
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  
-    
-  }
+.status {
+  font-size: 14px;
+  color: #666;
+}
+.status-indicator {
+  font-weight: bold;
+}
+.status-indicator.good {
+  color: green;
+}
+.status-indicator.bad {
+  color: red;
+}
+
+.inventory-list.good{
+  max-height: none;
+  overflow: visible;
+}
 
 
 .inventory-list li {
@@ -89,3 +86,24 @@ body.blur #main-content {
   content: '▲';
   transform: rotate(180deg);
 } 
+
+
+a {
+  display: inline-block; 
+  margin-top: 20px; 
+  padding: 10px 15px; 
+  background-color: #4CAF50;
+  color: white; 
+  text-decoration: none; 
+  border-radius: 5px; 
+  text-align: center; 
+}
+
+a:hover {
+  background-color: #45a049;
+}
+
+
+.button-container {
+  text-align: center; 
+}
