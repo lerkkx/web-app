@@ -165,3 +165,31 @@ body.blur #main-content {
 .quantity-indicator.in-stock {
   color: green;
 }
+
+
+
+.out-of-stock-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background-color: #ffeeee;
+  border-radius: 5px;
+}
+
+.request-button {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.request-button:hover {
+  background-color: #0056b3;
+}
