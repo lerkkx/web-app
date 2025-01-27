@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 def create_request(request):
     if request.method == 'POST':
         item_name = request.POST.get('item_name')
-        InventoryRequest.objects.create(user=request.user, item_name=item_name)
+        quantity = int(request.POST.get('quantity', 1))
+        InventoryRequest.objects.create(user=request.user, item_name=item_name, quantity = quantity)
         return redirect('track_requests')
     
 
@@ -37,6 +38,9 @@ def manage_requests(request):
         
         if action == 'approve':
             inventory_request.status = 'Заявка одобрена'
+            item = InventoryItem.objects.get(name=inventory_request.item_name)
+            item.quantity -= inventory_request.quantity  
+            item.save()
             item_id = InventoryItem.objects.get(name=inventory_request.item_name)
             if Ownership.objects.filter(user=user, item=item_id).exists():
                 items = Ownership.objects.get(user=user, item=item_id)

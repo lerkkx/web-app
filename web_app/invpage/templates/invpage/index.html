@@ -12,8 +12,8 @@
 
 <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{% url 'track_requests' %}">Ваши заявки</a> 
-    <a href="{% url 'owned_inv' %}">Личный кабинет</a> 
+    <a href="{% url 'track_requests' %}">Ваши заявки</a>
+    <a href="{% url 'owned_inv' %}">Личный кабинет</a>
     {% if request.user.is_superuser %}
         <a href="{% url 'manage_requests' %}">Управление заявками</a>
     {% endif %}
@@ -32,25 +32,27 @@
                     <div class="inventory-card">
                         <h3>{{ item.name }}</h3>
                         <div class="status">
-                            Статус: 
-                            <span class="status-indicator 
+                            Статус:
+                            <span class="status-indicator
                                 {% if item.status == 'Исправен' %}good{% else %}bad{% endif %}">
                                 {{ item.status }}
                             </span>
-                        </div>                                                                     
+                        </div>
                         <p>Описание: {{ item.description }}</p>
                         <p>
-                            Количество: 
-                            <span class="quantity-indicator 
+                            Количество:
+                            <span class="quantity-indicator
                                 {% if item.quantity == 0 %}out-of-stock{% else %}in-stock{% endif %}">
                                 {{ item.quantity }}
                             </span>
-                        </p>                        
-                        
+                        </p>
+
                         {% if item.quantity > 0 %}
                             <form method="POST" action="{% url 'index' %}">
                                 {% csrf_token %}
                                 <input type="hidden" name="item_name" value="{{ item.name }}">
+                                <label for="quantity">Количество:</label>
+                                <input type="number" name="quantity" id="quantity" min="1" max="{{ item.quantity }}" required>
                                 <button type="submit" class="request-button">Отправить заявку</button>
                             </form>
                         {% else %}
@@ -62,7 +64,7 @@
                 <li>Нет доступного инвентаря.</li>
             {% endfor %}
         </ul>
-    </div>      
+    </div>
 </div>
 <script src="{% static 'invpage/js/inv.js' %}"></script>
 
