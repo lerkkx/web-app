@@ -18,7 +18,7 @@ class InventoryItem(models.Model):
     description = models.TextField()
     status = models.CharField(max_length=50, default='Исправен')
     item_id = models.AutoField(primary_key=True)  
-    quantity = models.PositiveIntegerField(default=0) 
+    quantity = models.PositiveIntegerField(default=1) 
 
     def __str__(self):
         return f"{self.name} (ID: {self.item_id}, Количество: {self.quantity})"

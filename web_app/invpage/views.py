@@ -31,17 +31,22 @@ def manage_requests(request):
         request_id = request.POST.get('request_id')
         action = request.POST.get('action') 
         
-        
+        user = request.user
         inventory_request = get_object_or_404(InventoryRequest, request_id=request_id)
         
         
         if action == 'approve':
             inventory_request.status = 'Заявка одобрена'
-
-            Ownership.objects.create(
-                user=inventory_request.user,
-                item=InventoryItem.objects.get(name=inventory_request.item_name),
-                quantity=inventory_request.quantity)
+            item_id = InventoryItem.objects.get(name=inventory_request.item_name)
+            if Ownership.objects.filter(user=user, item=item_id).exists():
+                items = Ownership.objects.get(user=user, item=item_id)
+                items.quantity+=1
+                items.save()
+            else:
+                Ownership.objects.create(
+                    user=inventory_request.user,
+                    item=InventoryItem.objects.get(name=inventory_request.item_name),
+                    quantity=inventory_request.quantity)
             
         elif action == 'reject':
             inventory_request.status = 'Заявка отклонена'
