@@ -44,7 +44,7 @@ def manage_requests(request):
             item_id = InventoryItem.objects.get(name=inventory_request.item_name)
             if Ownership.objects.filter(user=user, item=item_id).exists():
                 items = Ownership.objects.get(user=user, item=item_id)
-                items.quantity+=1
+                items.quantity+=inventory_request.quantity
                 items.save()
             else:
                 Ownership.objects.create(
