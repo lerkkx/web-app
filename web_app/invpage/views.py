@@ -25,42 +25,42 @@ def is_superuser(user):
 @login_required
 @user_passes_test(is_superuser)
 def manage_requests(request):
-    
     pending_requests = InventoryRequest.objects.filter(status='В ожидании')
     
     if request.method == 'POST':
         request_id = request.POST.get('request_id')
         action = request.POST.get('action') 
         
-        user = request.user
         inventory_request = get_object_or_404(InventoryRequest, request_id=request_id)
-        
         
         if action == 'approve':
             inventory_request.status = 'Заявка одобрена'
-            item = InventoryItem.objects.get(name=inventory_request.item_name)
-            item.quantity -= inventory_request.quantity  
-            item.save()
-            item_id = InventoryItem.objects.get(name=inventory_request.item_name)
-            if Ownership.objects.filter(user=user, item=item_id).exists():
-                items = Ownership.objects.get(user=user, item=item_id)
-                items.quantity+=inventory_request.quantity
-                items.save()
-            else:
-                Ownership.objects.create(
-                    user=inventory_request.user,
-                    item=InventoryItem.objects.get(name=inventory_request.item_name),
-                    quantity=inventory_request.quantity)
             
+            try:
+                item = InventoryItem.objects.get(name=inventory_request.item_name)
+                
+                if item.quantity >= inventory_request.quantity:
+                    item.quantity -= inventory_request.quantity  
+                    item.save()
+                    
+                    ownership, created = Ownership.objects.get_or_create(
+                        user=inventory_request.user,
+                        item=item,
+                        defaults={'quantity': 0}
+                    )
+                    ownership.quantity += inventory_request.quantity
+                    ownership.save()
+                else:
+                    print("Недостаточно предметов в наличии.")
+            except InventoryItem.DoesNotExist:
+                print("Предмет не найден.")
+        
         elif action == 'reject':
             inventory_request.status = 'Заявка отклонена'
         
-        
         inventory_request.save()
         
-
         return redirect('manage_requests')
-    
 
     return render(request, 'invpage/request_direct.html', {'pending_requests': pending_requests})
 
