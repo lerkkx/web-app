@@ -51,8 +51,7 @@
                             <form method="POST" action="{% url 'index' %}">
                                 {% csrf_token %}
                                 <input type="hidden" name="item_name" value="{{ item.name }}">
-                                <label for="quantity">Количество:</label>
-                                <input type="number" name="quantity" id="quantity" min="1" max="{{ item.quantity }}" required>
+                                <label for="quantity">Количество: <input type="number" name="quantity" id="quantity" min="1" max="{{ item.quantity }}" required></label>
                                 <button type="submit" class="request-button">Отправить заявку</button>
                             </form>
                         {% else %}

@@ -128,8 +128,8 @@ body.blur #main-content {
     margin: 20px auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
   }
 .toggle-section .btnlist {
   
