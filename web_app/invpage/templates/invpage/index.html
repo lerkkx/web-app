@@ -47,13 +47,15 @@
                             </span>
                         </p>
 
-                        {% if item.quantity > 0 %}
+                        {% if item.quantity > 0 and item.status == 'Исправен' %}
                             <form method="POST" action="{% url 'index' %}">
                                 {% csrf_token %}
                                 <input type="hidden" name="item_name" value="{{ item.name }}">
                                 <label for="quantity">Количество: <input type="number" name="quantity" id="quantity" min="1" max="{{ item.quantity }}" required></label>
                                 <button type="submit" class="request-button">Отправить заявку</button>
                             </form>
+                        {% elif item.quantity > 0 and item.status != 'Исправен' %}
+                            <div class="out-of-stock-message">Инвентарь не исправен</div>
                         {% else %}
                             <div class="out-of-stock-message">Нет в наличии</div>
                         {% endif %}
