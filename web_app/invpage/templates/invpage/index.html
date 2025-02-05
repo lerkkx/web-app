@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
     <link rel="stylesheet" href="{% static 'invpage/css/inv.css' %}">
+    <link rel="stylesheet" href="{% static 'invpage/css/modal_window.css' %}">
     <link rel="icon" href="{% static 'invpage/img/pushed-brands-solid.svg' %}" type="image/x-icon">
 </head>
 <body>
@@ -48,12 +49,7 @@
                         </p>
 
                         {% if item.quantity > 0 and item.status == 'Исправен' %}
-                            <form method="POST" action="{% url 'index' %}">
-                                {% csrf_token %}
-                                <input type="hidden" name="item_name" value="{{ item.name }}">
-                                <label for="quantity">Количество: <input type="number" name="quantity" id="quantity" min="1" max="{{ item.quantity }}" required></label>
-                                <button type="submit" class="request-button">Отправить заявку</button>
-                            </form>
+                            <button onclick="openModal('{{ item.name }}', '{{ item.quantity }}')" class="request-button">Отправить заявку</button>
                         {% elif item.quantity > 0 and item.status != 'Исправен' %}
                             <div class="out-of-stock-message">Инвентарь не исправен</div>
                         {% else %}
@@ -66,8 +62,25 @@
             {% endfor %}
         </ul>
     </div>
+
+ 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Введите количество</h2>
+            <form id="requestForm" method="POST" action="{% url 'index' %}">
+                {% csrf_token %}
+                <input type="hidden" name="item_name" id="modal-item-name">
+                <input type="number" name="quantity" id="modal-quantity" min="1" required>
+                <button type="submit" style="margin-top: 20px;">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
 </div>
+
 <script src="{% static 'invpage/js/inv.js' %}"></script>
+<script src="{% static 'invpage/js/modal_window.js' %}"></script>
 
 </body>
 </html>
