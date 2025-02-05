@@ -29,7 +29,8 @@ class Ownership(models.Model):
     quantity = models.PositiveIntegerField(default=1) 
 
     def __str__(self):
-        return self
+        return f"{self.user.username} - {self.item.name} ({self.quantity})"
+
 
 class PurchasePlan(models.Model):
     item = models.ForeignKey('InventoryItem', on_delete=models.CASCADE)
