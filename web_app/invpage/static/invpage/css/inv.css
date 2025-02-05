@@ -13,9 +13,9 @@ body {
 
 .sidebar {
     height: 100%;
-    width: 250px;
+    width: 275px;
     top: 0;
-    left: -250px;
+    left: -275px;
     overflow-x: hidden;
     padding-top: 60px;
     background: linear-gradient(to bottom, #333, #555);

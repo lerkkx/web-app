@@ -4,7 +4,7 @@ function openNav() {
 }
 
 function closeNav() {
-    document.getElementById("sidebar").style.left = "-250px";
+    document.getElementById("sidebar").style.left = "-275px";
     document.body.classList.remove('blur');
 }
 

@@ -13,12 +13,14 @@
 
 <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{% url 'track_requests' %}">Ваши заявки</a>
-    <a href="{% url 'owned_inv' %}">Личный кабинет</a>
     {% if request.user.is_superuser %}
+        <a href="/admin/">Администратирование</a>
         <a href="{% url 'manage_requests' %}">Управление заявками</a>
+    {% else %}
+        <a href="{% url 'track_requests' %}">Ваши заявки</a>
+        <a href="{% url 'owned_inv' %}">Личный кабинет</a>
+        <a href="{% url 'about' %}">О нас</a>
     {% endif %}
-    <a href="{% url 'about' %}">О нас</a>
 </div>
 
 <div id="main-content">
@@ -48,11 +50,11 @@
                             </span>
                         </p>
 
-                        {% if item.quantity > 0 and item.status == 'Исправен' %}
+                        {% if item.quantity > 0 and item.status == 'Исправен' and not request.user.is_superuser %}
                             <button onclick="openModal('{{ item.name }}', '{{ item.quantity }}')" class="request-button">Отправить заявку</button>
-                        {% elif item.quantity > 0 and item.status != 'Исправен' %}
+                        {% elif item.quantity > 0 and item.status != 'Исправен' and not request.user.is_superuser %}
                             <div class="out-of-stock-message">Инвентарь не исправен</div>
-                        {% else %}
+                        {% elif not request.user.is_superuser %}
                             <div class="out-of-stock-message">Нет в наличии</div>
                         {% endif %}
                     </div>
