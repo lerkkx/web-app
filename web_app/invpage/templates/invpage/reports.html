@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты</title>
+    <link rel="stylesheet" href="{% static 'invpage/css/reports.css' %}">
+    <link rel="icon" href="{% static 'invpage/img/flag-solid.svg' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h2>Отчеты по инвентарю</h2>
+
+        <section id="usage_reports">
+            {% if usage_reports %}
+                <div class="row">
+                    {% for report in usage_reports %}
+                        <div class="col-md-6 mb-4">
+                            <div class="report-card">
+                                <div class="card-header">
+                                    <h4>{{ report.item.name }}</h4>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Пользователь:</strong> {{ report.user.username }}</p>
+                                    <p><strong>Заметки:</strong> {{ report.notes }}</p>
+                                    <p><strong>Создано:</strong> {{ report.created_at|date:"d.m.Y H:i" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert-info">
+                    Нет отчетов об использовании.
+                </div>
+            {% endif %}
+        </section>
+    </div>
+
+    <div class="button-container">
+        <a href="{% url 'index' %}">Назад на главную</a>
+    </div>
+    <div></div>
+</body>
+</html>

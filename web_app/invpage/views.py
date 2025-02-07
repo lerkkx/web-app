@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import InventoryRequest, InventoryItem, Ownership
+from .models import *
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 @login_required
@@ -67,7 +67,22 @@ def manage_requests(request):
 @login_required
 def owned_inv(request):
     user = request.user
-    
     owned_items = Ownership.objects.filter(user=user).select_related('item')
-    
     return render(request, 'inventory_owned.html', {'owned_items': owned_items})
+
+@login_required
+def reports_view(request):
+    inventory_requests = InventoryRequest.objects.all()
+    inventory_items = InventoryItem.objects.all()
+    ownerships = Ownership.objects.all()
+    purchase_plans = PurchasePlan.objects.all()
+    usage_reports = UsageReport.objects.all()
+
+    context = {
+        'inventory_requests': inventory_requests,
+        'inventory_items': inventory_items,
+        'ownerships': ownerships,
+        'purchase_plans': purchase_plans,
+        'usage_reports': usage_reports,
+    }
+    return render(request, 'invpage/reports.html', context)

@@ -1,0 +1,111 @@
+/* invpage/css/reports.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Светлый фон для всей страницы */
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Белый фон для контейнера с отчетами */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Небольшая тень для выделения */
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    color: #2c3e50; /* Темно-серый цвет для заголовка */
+}
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #34495e; /* Еще более темный серый для подзаголовков */
+    border-bottom: 2px solid #ddd; /* Тонкая линия под подзаголовком */
+    padding-bottom: 5px;
+}
+
+/* Секции для каждого типа отчета */
+section {
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-sizing: border-box; /* Важно для правильного расчета ширины */
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important; /* 24px */
+}
+
+/* Карточка отчета */
+.report-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Очень легкая тень */
+}
+
+.card-header {
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-body p {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Предупреждение об отсутствии данных */
+.alert-info {
+    padding: 15px;
+    background-color: #e7f3ff;
+    border-left: 6px solid #2196F3;
+    margin-bottom: 15px;
+    color: #31708f;
+}
+
+/* Кнопка "Назад на главную" */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button-container a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Зеленый цвет для кнопки */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button-container a:hover {
+    background-color: #45a049; /* Более темный зеленый при наведении */
+}

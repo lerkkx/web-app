@@ -63,7 +63,6 @@ body.blur #main-content {
     align-items: center; */
   }
 .btnlist {
-  
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -106,4 +105,5 @@ a:hover {
 
 .button-container {
   text-align: center; 
+  margin-bottom: 20px;
 }
