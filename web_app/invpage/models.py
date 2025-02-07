@@ -62,12 +62,13 @@ class PurchasePlan(models.Model):
 
 
 class UsageReport(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("Пользователь"), default=1)
     item = models.ForeignKey('InventoryItem', on_delete=models.CASCADE, verbose_name=_("Инвентарь"))
     notes = models.TextField(verbose_name=_("Заметки"))
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Отчет для {self.item.name} (Создано: {self.created_at})"
+        return f"Отчет для {self.item.name} (Пользователь: {self.user.username}, Создано: {self.created_at})"
 
     class Meta:
         verbose_name = _("отчет об использовании")

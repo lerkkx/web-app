@@ -16,8 +16,9 @@ class PurchasePlanForm(forms.ModelForm):
 class UsageReportForm(forms.ModelForm):
     class Meta:
         model = UsageReport
-        fields = ['item', 'notes']
+        fields = ['user', 'item', 'notes']
         labels = {
+            'user': _("Пользователь"),
             'item': _("Предмет"),
             'notes': _("Заметки"),
         }
