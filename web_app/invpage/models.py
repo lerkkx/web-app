@@ -1,9 +1,7 @@
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.db import models
-
-
-
+from django.utils import timezone
 
 
 class InventoryRequest(models.Model):
@@ -68,7 +66,9 @@ class UsageReport(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Отчет для {self.item.name} (Пользователь: {self.user.username}, Создано: {self.created_at})"
+        local_time = timezone.localtime(self.created_at)
+        formatted_time = local_time.strftime("%Y-%m-%d %H:%M:%S")
+        return f"Отчет для {self.item.name} (Пользователь: {self.user.username}, Создано: {formatted_time})"
 
     class Meta:
         verbose_name = _("отчет об использовании")
