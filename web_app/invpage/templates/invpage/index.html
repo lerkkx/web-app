@@ -53,7 +53,7 @@
                         </p>
 
                         {% if item.quantity > 0 and item.status == 'Исправен' and not request.user.is_superuser %}
-                            <button onclick="openModal('{{ item.name }}', '{{ item.quantity }}')" class="request-button">Отправить заявку</button>
+                            <button onclick="openModal('{{ item.name }}', '{{ item.quantity }}', '{{item.item_id}}')" class="request-button">Отправить заявку</button>
                         {% elif item.quantity > 0 and item.status != 'Исправен' and not request.user.is_superuser %}
                             <div class="out-of-stock-message">Инвентарь не исправен</div>
                         {% elif not request.user.is_superuser %}
@@ -75,6 +75,7 @@
             <form id="requestForm" method="POST" action="{% url 'index' %}">
                 {% csrf_token %}
                 <input type="hidden" name="item_name" id="modal-item-name">
+                <input type="hidden" name="item_id" id="item_id">
                 <input type="number" name="quantity" id="modal-quantity" min="1" required>
                 <button type="submit" style="margin-top: 20px;">Отправить заявку</button>
             </form>

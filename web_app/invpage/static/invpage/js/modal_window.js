@@ -1,5 +1,6 @@
-function openModal(itemName, maxQuantity) {
+function openModal(itemName, maxQuantity, item_id) {
     document.getElementById('modal-item-name').value = itemName;
+    document.getElementById('item_id').value = item_id;
     document.getElementById('modal-quantity').setAttribute('max', maxQuantity);
     document.getElementById('myModal').style.display = "block";
 }

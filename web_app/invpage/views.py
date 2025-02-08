@@ -6,8 +6,19 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 def create_request(request):
     if request.method == 'POST':
         item_name = request.POST.get('item_name')
+        item_id = request.POST.get('item_id')
         quantity = int(request.POST.get('quantity', 1))
-        InventoryRequest.objects.create(user=request.user, item_name=item_name, quantity = quantity)
+        item_quantity = InventoryItem.objects.get(item_id=item_id).quantity
+
+        sum1 = quantity
+        for i in InventoryRequest.objects.filter(item_id=item_id, status='В ожидании'):
+            print(sum1)
+            sum1 += i.quantity
+        for i in InventoryRequest.objects.filter(item_id=item_id, status='В ожидании'):
+            i.quantity_of_all = sum1
+            i.save()
+        
+        InventoryRequest.objects.create(user=request.user, item_name=item_name, quantity = quantity, item_id=item_id, quantity_of_all=sum1, quantity_item=item_quantity)
         return redirect('track_requests')
     
 
@@ -30,14 +41,14 @@ def manage_requests(request):
     if request.method == 'POST':
         request_id = request.POST.get('request_id')
         action = request.POST.get('action') 
-        
+        action1 = request.POST.get('action1') 
         inventory_request = get_object_or_404(InventoryRequest, request_id=request_id)
         
         if action == 'approve':
             inventory_request.status = 'Заявка одобрена'
             
             try:
-                item = InventoryItem.objects.get(name=inventory_request.item_name)
+                item = InventoryItem.objects.get(item_id=inventory_request.item_id)
                 
                 if item.quantity >= inventory_request.quantity:
                     item.quantity -= inventory_request.quantity  
@@ -54,7 +65,15 @@ def manage_requests(request):
                     print("Недостаточно предметов в наличии.")
             except InventoryItem.DoesNotExist:
                 print("Предмет не найден.")
-        
+        elif action1 == 'continue_w':
+            
+            item = InventoryItem.objects.get(item_id=inventory_request.item_id)
+            inventory_request.status = "Заявка одобрена"
+            for i in InventoryRequest.objects.filter(item_id=inventory_request.item_id , status="В ожидании"):
+                i.status = 'Заявка отклонена'
+                i.save()
+            item.quantity -= inventory_request.quantity  
+            item.save()
         elif action == 'reject':
             inventory_request.status = 'Заявка отклонена'
         

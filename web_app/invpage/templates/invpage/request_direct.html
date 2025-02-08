@@ -1,15 +1,15 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Управление заявками</title>
     <link rel="stylesheet" href="{% static 'invpage/css/req.css' %}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="icon" href="{% static 'invpage/img/list-check-solid.svg' %}" type="image/x-icon">
+    <script src="{% static 'invpage/js/warning.js' %}"></script>
+    <title>Управление заявками</title>
+</head>
 <body>
     <div class="container">
         <h2>Управление заявками</h2>
@@ -30,9 +30,17 @@
                                 <form method="post" action="{% url 'manage_requests' %}" class="d-inline">
                                     {% csrf_token %}
                                     <input type="hidden" name="request_id" value="{{ req.request_id }}">
-                                    <button type="submit" name="action" value="approve" class="btn btn-success">
-                                        <i class="fas fa-check"></i> Одобрить
-                                    </button>
+
+                                    {% if req.quantity_item > req.quantity_of_all %}
+                                        <button type="submit" name="action" value="approve" class="btn btn-success">
+                                            <i class="fas fa-check"></i> Одобрить
+                                        </button>
+                                    {% else %}
+                                        <button type="button" class="btn btn-success" onclick="openWarning('{{ req.request_id }}')">
+                                            <i class="fas fa-check"></i> Одобрить
+                                        </button>
+                                    {% endif %}
+
                                     <button type="submit" name="action" value="reject" class="btn btn-false">
                                         <i class="fas fa-times"></i> Отклонить
                                     </button>
@@ -49,11 +57,27 @@
         {% endif %}
     </div>
 
-
     <div class="button-container">
         <a href="{% url 'index' %}">Назад на главную</a>
     </div>
 
+    <div class="warning-overlay" id="warning" style="display: none;">
+        <div class="warning-card">
+            <div class="warning-content">
+                <p class="warning-text">Внимание! Количество запрошенных предметов превышает доступное количество.
+                    Если вы одобрите эту заявку, другие заявки на данный предмет будут автоматически отклонены.
+                    Вы уверены, что хотите продолжить?</p>
+                <div class="warning-buttons">
+                    <form method="post" action="{% url 'manage_requests' %}" class="d-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="request_id" id="warningRequestId" value="">
+                        <button type="submit" class="warning-button confirm" name="action1" value="continue_w">Подтвердить</button>
+                        
+                    </form>
+                    <button class="warning-button cancel" onclick="closeWarning()">Отмена</button>
+                </div>
+            </div>
+        </div>
 
 </body>
 </html>

@@ -11,6 +11,9 @@ class InventoryRequest(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Дата создания"))
     request_id = models.AutoField(primary_key=True)  
     quantity = models.PositiveIntegerField(default=0, verbose_name=_("Количество"))
+    quantity_of_all = models.PositiveIntegerField(default=0, verbose_name=_("Всего"))
+    item_id = models.PositiveIntegerField(default=0, verbose_name=_("id"))
+    quantity_item = models.PositiveIntegerField(default=0, verbose_name=_("Количество предметов"))
 
     def __str__(self):
         return f"{self.item_name} - {self.status} (ID: {self.request_id}, Количество: {self.quantity})"
