@@ -26,10 +26,10 @@ class UsageReportForm(forms.ModelForm):
 class InventoryRequestForm(forms.ModelForm):
     class Meta:
         model = InventoryRequest
-        fields = ['user', 'item_name', 'status', 'quantity']
+        fields = ['user', 'item', 'status', 'quantity']
         labels = {
             'user': _("Пользователь"),
-            'item_name': _("Название предмета"),
+            'item': _("Предмет"),
             'status': _("Статус"),
             'quantity': _("Количество"),
         }

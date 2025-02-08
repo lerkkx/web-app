@@ -15,7 +15,7 @@
 
 <ul>
     {% for request in requests %}
-        <li>ID заявки: {{ request.request_id }} - {{ request.item_name }} - Статус: {{ request.status }} ({{ request.created_at }})</li>
+        <li>ID заявки: {{ request.request_id }} - {{ request.item.name }} - Статус: {{ request.status }} ({{ request.created_at }})</li>
     {% empty %}
         <li>У вас нет заявок.</li>
     {% endfor %}

@@ -8,17 +8,16 @@ def create_request(request):
         item_name = request.POST.get('item_name')
         item_id = request.POST.get('item_id')
         quantity = int(request.POST.get('quantity', 1))
-        item_quantity = InventoryItem.objects.get(item_id=item_id).quantity
+        item = InventoryItem.objects.get(item_id=item_id)
 
         sum1 = quantity
         for i in InventoryRequest.objects.filter(item_id=item_id, status='В ожидании'):
-            print(sum1)
             sum1 += i.quantity
         for i in InventoryRequest.objects.filter(item_id=item_id, status='В ожидании'):
             i.quantity_of_all = sum1
             i.save()
         
-        InventoryRequest.objects.create(user=request.user, item_name=item_name, quantity = quantity, item_id=item_id, quantity_of_all=sum1, quantity_item=item_quantity)
+        InventoryRequest.objects.create(user=request.user, quantity = quantity, item_id=item_id, item=item)
         return redirect('track_requests')
     
 
@@ -36,6 +35,12 @@ def is_superuser(user):
 @login_required
 @user_passes_test(is_superuser)
 def manage_requests(request):
+    dict_quantity = {}
+    for i in InventoryRequest.objects.filter(status='В ожидании'):
+        if dict_quantity.get(i.item_id,0):
+            dict_quantity[i.item_id] += i.quantity
+        else:
+            dict_quantity[i.item_id] = i.quantity
     pending_requests = InventoryRequest.objects.filter(status='В ожидании')
     
     if request.method == 'POST':
@@ -80,8 +85,8 @@ def manage_requests(request):
         inventory_request.save()
         
         return redirect('manage_requests')
-
-    return render(request, 'invpage/request_direct.html', {'pending_requests': pending_requests})
+    print(dict_quantity)
+    return render(request, 'invpage/request_direct.html', {'pending_requests': pending_requests, 'dictq' : dict_quantity})
 
 @login_required
 def owned_inv(request):
