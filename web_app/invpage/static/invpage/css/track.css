@@ -4,7 +4,6 @@ body {
     padding: 20px;
 }
 
-
 h1 {
     color: #333;
     margin-bottom: 20px;
@@ -13,24 +12,23 @@ h1 {
 
 
 ul {
-    list-style-type: none; /* Убираем маркеры списка */
-    padding: 0; /* Убираем отступы */
+    list-style-type: none;
+    padding: 0;
 }
 
 ul li {
-    border: 2px solid #aaa; /* Граница элемента списка */
-    border-radius: 10px; /* Скругление углов */
-    background-color: #f9f9f9; /* Цвет фона элемента */
-    padding: 20px; /* Отступы внутри элемента */
-    width: 80%; /* Ширина элемента */
-    margin: 10px auto; /* Центрирование элемента с отступом сверху и снизу */
-    display: flex; /* Используем flexbox для выравнивания содержимого */
-    flex-direction: column; /* Вертикальное выравнивание содержимого */
-    justify-content: center; /* Центрируем содержимое по вертикали */
-    align-items: flex-start; /* Выравнивание содержимого по левому краю */
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px; 
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-/* Статус заявки */
 .status {
     font-size: 14px;
     color: #666;
@@ -48,7 +46,6 @@ ul li {
     color: red;
 }
 
-
 a {
     display: inline-block; 
     margin-top: 20px; 
@@ -63,7 +60,6 @@ a {
 a:hover {
     background-color: #45a049;
 }
-
 
 .button-container {
     text-align: center;

@@ -107,7 +107,6 @@ h2 {
     margin-top: 20px;
 }
 
-
 a {
     display: inline-block; 
     margin-top: 20px; 
@@ -117,23 +116,16 @@ a {
     text-decoration: none; 
     border-radius: 5px; 
     text-align: center; 
-  }
-  
-  a:hover {
-    background-color: #45a049;
-  }
-  
-  
-  .button-container {
-    text-align: center; 
-    margin-bottom: 20px;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
 }
 
+a:hover {
+    background-color: #45a049;
+}
+  
+.button-container {
+    text-align: center; 
+    margin-bottom: 20px;
+}
 
 .warning-overlay {
     position: fixed;
@@ -147,7 +139,6 @@ a {
     align-items: center;
     z-index: 1000; 
 }
-
 
 .warning-card {
     background-color: #fff;

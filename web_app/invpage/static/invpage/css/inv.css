@@ -6,133 +6,145 @@ h1 {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .sidebar {
-    height: 100%;
-    width: 275px;
-    top: 0;
-    left: -275px;
-    overflow-x: hidden;
-    padding-top: 60px;
-    background: linear-gradient(to bottom, #333, #555);
-    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-    position: fixed;
-    z-index: 1000;
-    transition: left 0.3s ease;
+  height: 100%;
+  width: 275px;
+  top: 0;
+  left: -275px;
+  overflow-x: hidden;
+  padding-top: 60px;
+  background: linear-gradient(to bottom, #333, #555);
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  position: fixed;
+  z-index: 1000;
+  transition: left 0.3s ease;
 }
 
 .sidebar a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 22px;
-    color: #fff;
-    display: block;
-    transition: 0.3s;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
 }
 
 .sidebar a:hover {
-    color: #f1f1f1;
+  background: #444;
 }
 
 .sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    font-size: 36px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 36px;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 36px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
 }
 
 .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #333;
-    color: white;
-    padding: 10px 15px;
-    border: none;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  padding: 10px 15px;
+  border: none;
 }
 
 .openbtn:hover {
-    background-color: #444;
+  background-color: #444;
 }
 
 #main {
-    transition: margin-left .5s;
-    padding: 16px;
+  transition: margin-left .5s;
+  padding: 16px;
 }
 
 body.blur #main-content {
-    filter: blur(5px);
+  filter: blur(5px);
 }
 
-
-.sidebar a:hover {
-    background: #444;
+.status {
+  font-size: 14px;
+  color: #666;
 }
 
-
-  .status {
-    font-size: 14px;
-    color: #666;
-  }
-  .status-indicator {
-    font-weight: bold;
-  }
-  .status-indicator.good {
-    color: green;
-  }
-  .status-indicator.bad {
-    color: red;
-  }
-  
-  .inventory-list.good{
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  
-    
-  }
-
-
-  .inventory-list.good button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .inventory-card .request-button:hover {
-    background-color: #0056b3;
+.status-indicator {
+  font-weight: bold;
 }
 
-  .toggle-section {
-    margin-top: 15px;
-  }
-  .toggle-section label {
-    display: block;
-    background-color: #f1f1f1;
-    padding: 10px;
-    cursor: pointer;
-  }
+.status-indicator.good {
+  color: green;
+}
 
-  .inventory-list li {
-    border: 2px groove #aaa;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    width: 80%;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
-  }
+.status-indicator.bad {
+  color: red;
+}
+
+.inventory-list.good{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.inventory-list.good button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.inventory-card .request-button:hover {
+  background-color: #0056b3;
+}
+
+.toggle-section {
+  margin-top: 15px;
+}
+
+.toggle-section label {
+  display: block;
+  background-color: #f1f1f1;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.inventory-list li {
+  border: 2px groove #aaa;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+}
+
 .toggle-section .btnlist {
-  
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -144,13 +156,14 @@ body.blur #main-content {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  
 }
+
 .toggle-section .btnlist:after {
   content: '▼';
   margin-left: 10px;
   transition: transform 0.3s ease, content 0.3s ease;
 }
+
 .toggle-section .btnlist.active:after {
   content: '▲';
   transform: rotate(360deg);
@@ -159,14 +172,14 @@ body.blur #main-content {
 .quantity-indicator {
   font-weight: bold;
 }
+
 .quantity-indicator.out-of-stock {
   color: red;
 }
+
 .quantity-indicator.in-stock {
   color: green;
 }
-
-
 
 .out-of-stock-message {
   color: red;

@@ -1,18 +1,16 @@
-/* invpage/css/reports.css */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Светлый фон для всей страницы */
+    background-color: #f4f4f4;
 }
 
 .container {
     width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff; /* Белый фон для контейнера с отчетами */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Небольшая тень для выделения */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
 
@@ -20,18 +18,17 @@ h2 {
     text-align: center;
     margin: 20px 0;
     font-size: 24px;
-    color: #2c3e50; /* Темно-серый цвет для заголовка */
+    color: #2c3e50;
 }
 
 h3 {
     margin-top: 20px;
     margin-bottom: 10px;
-    color: #34495e; /* Еще более темный серый для подзаголовков */
-    border-bottom: 2px solid #ddd; /* Тонкая линия под подзаголовком */
+    color: #34495e;
+    border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
 }
 
-/* Секции для каждого типа отчета */
 section {
     margin-bottom: 30px;
 }
@@ -48,19 +45,18 @@ section {
     max-width: 50%;
     padding-right: 15px;
     padding-left: 15px;
-    box-sizing: border-box; /* Важно для правильного расчета ширины */
+    box-sizing: border-box;
 }
 
 .mb-4 {
-    margin-bottom: 1.5rem !important; /* 24px */
+    margin-bottom: 1.5rem !important;
 }
 
-/* Карточка отчета */
 .report-card {
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Очень легкая тень */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .card-header {
@@ -80,7 +76,6 @@ section {
     color: #555;
 }
 
-/* Предупреждение об отсутствии данных */
 .alert-info {
     padding: 15px;
     background-color: #e7f3ff;
@@ -89,7 +84,6 @@ section {
     color: #31708f;
 }
 
-/* Кнопка "Назад на главную" */
 .button-container {
     text-align: center;
     margin-top: 20px;
@@ -99,7 +93,7 @@ section {
 .button-container a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50; /* Зеленый цвет для кнопки */
+    background-color: #4CAF50;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -107,5 +101,5 @@ section {
 }
 
 .button-container a:hover {
-    background-color: #45a049; /* Более темный зеленый при наведении */
+    background-color: #45a049;
 }

@@ -51,21 +51,21 @@ def about(request):
     return render(request, 'main/about.html')
 
 
-def make_token_with_expiry(user): #фиксируем время отправки письма + генерируем ссылку
+def make_token_with_expiry(user): # фиксируем время отправки письма + генерируем ссылку
     token = default_token_generator.make_token(user)
     user.token_timestamp = timezone.now()
     user.save()
     return token
 
 
-def is_token_valid(user, token): #проверяем ссылку на истечение времени
+def is_token_valid(user, token): # проверяем ссылку на истечение времени
     if default_token_generator.check_token(user, token):
         expiry_time = user.token_timestamp + timedelta(minutes=10)
         return timezone.now() <= expiry_time
     return False
 
 
-def password_reset_request(request): #получение почты пользователя и отправки письма
+def password_reset_request(request): # получение почты пользователя и отправки письма
     if request.method == "POST":
         form = PasswordResetRequestForm(request.POST)
         if form.is_valid():

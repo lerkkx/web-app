@@ -26,8 +26,6 @@ class InventoryRequest(models.Model):
     request_id = models.AutoField(primary_key=True)  
     quantity = models.PositiveIntegerField(default=0, verbose_name=_("Количество"))
 
-
-
     def __str__(self):
         return f"{self.item.name} - {self.status} (ID: {self.request_id}, Количество: {self.quantity})"
 
