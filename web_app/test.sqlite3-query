@@ -1,0 +1,2 @@
+-- database: /workspaces/web-app/web_app/db.sqlite3
+DELETE FROM django_migrations WHERE app = 'main' AND name = '0001_initial';
