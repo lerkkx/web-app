@@ -26,4 +26,4 @@ python manage.py runserver
 - Современный веб-браузер
 
 ## Видеовизитка
-[Сссылка]
+https://rutube.ru/video/private/b6287b8a9378c1ac5c3039faa89a5949/?p=kXT2nC5F47K-6T4rpZZsjA
