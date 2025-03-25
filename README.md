@@ -24,6 +24,3 @@ python manage.py runserver
 - Python 3.8+
 - Django 5.1.4
 - Современный веб-браузер
-
-## Видеовизитка
-https://rutube.ru/video/private/b6287b8a9378c1ac5c3039faa89a5949/?p=kXT2nC5F47K-6T4rpZZsjA
