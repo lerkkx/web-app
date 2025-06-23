@@ -14,5 +14,4 @@ class UserRegistration(AbstractUser):
     def __str__(self):
         return self.username
 
-    # новое
     last_login = models.DateTimeField(null=True, blank=True)
